@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "112208e7da0dea66f1d7f1b559b8b0df",
+    "revision": "7de5b21b6aad887a39b93f8e9f1062cf",
     "url": "/react-burgerbuilder/index.html"
   },
   {
-    "revision": "c3693536bdc11302cd3f",
+    "revision": "50d155704b37b62a735b",
     "url": "/react-burgerbuilder/static/css/main.71992426.chunk.css"
   },
   {
-    "revision": "80bc590bffda1ce3e5fd",
-    "url": "/react-burgerbuilder/static/js/2.4b2fd448.chunk.js"
+    "revision": "6e0567f7fd95bc38f641",
+    "url": "/react-burgerbuilder/static/js/2.120aac11.chunk.js"
   },
   {
-    "revision": "c3693536bdc11302cd3f",
-    "url": "/react-burgerbuilder/static/js/main.7dbb1b11.chunk.js"
+    "revision": "50d155704b37b62a735b",
+    "url": "/react-burgerbuilder/static/js/main.eee36781.chunk.js"
   },
   {
     "revision": "37fe7bdeec34976f553e",
