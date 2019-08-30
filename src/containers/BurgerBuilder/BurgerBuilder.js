@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
@@ -29,9 +30,8 @@ class BurgerBuilder extends Component {
 
   componentDidMount() {
 
-    // const config = {
-    //   headers: { 'Access-Control-Allow-Origin': '*' }
-    // }
+    // console.log(this.props);
+
     axios.get('https://react-myburger-50f53.firebaseio.com/ingredients.json')
       .then(response => {
         this.setState({ ingredients: response.data });
@@ -49,35 +49,49 @@ class BurgerBuilder extends Component {
 
 
   purhcaseContinueHandler = () => {
-    //alert('you continue');
 
-    this.setState({ loading: true });
+    const queryParams = [];
 
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'Max',
-        address: {
-          street: 'test 1',
-          zipcode: '20910',
-          country: 'USA'
-        },
-        email: 'test@test.com',
-        deliveryMethod: 'fastest'
-      }
+    for (let i in this.state.ingredients) {
+      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
     }
 
-    axios.post('/orders.json', order)
-      .then(response => {
-        this.setState({ loading: false, purchasing: false });
-        console.log(response);
-      })
-      .catch(error => {
-        this.setState({ loading: false, purchasing: false });
+    const queryString = queryParams.join('&');
 
-        console.log(error);
-      });
+    this.props.history.push({
+      pathname: '/checkout',
+      search: '?' + queryString
+    });
+
+    //alert('you continue');
+
+    // this.setState({ loading: true });
+
+    // const order = {
+    //   ingredients: this.state.ingredients,
+    //   price: this.state.totalPrice,
+    //   customer: {
+    //     name: 'Max',
+    //     address: {
+    //       street: 'test 1',
+    //       zipcode: '20910',
+    //       country: 'USA'
+    //     },
+    //     email: 'test@test.com',
+    //     deliveryMethod: 'fastest'
+    //   }
+    // }
+
+    // axios.post('/orders.json', order)
+    //   .then(response => {
+    //     this.setState({ loading: false, purchasing: false });
+    //     console.log(response);
+    //   })
+    //   .catch(error => {
+    //     this.setState({ loading: false, purchasing: false });
+
+    //     console.log(error);
+    //   });
 
   }
 
